@@ -1,5 +1,5 @@
 
-# EV Charging Operations & Revenue Analytics
+# EV Charging Operations & Analytics
 
 ## Project Overview
 
