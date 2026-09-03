@@ -1,198 +1,163 @@
+# ⚡ EV Charging Analytics Dashboard
 
-# EV Charging Operations & Analytics
+An end-to-end data analytics project that analyzes **1,878 real EV charging sessions** to understand charging demand, energy delivery, session duration, and operational patterns.
 
-## Project Overview
+The project follows a complete analytics workflow:
 
-This project analyzes EV charging session data to understand charging demand, energy delivery, session duration, connector usage, and operational patterns.
-
-The analysis uses a real EV charging session dataset containing 1,878 charging sessions recorded between April 2022 and July 2023.
-
-The goal is to transform raw charging-session data into practical operational insights using Python, Pandas, NumPy, Matplotlib, and SQL.
+> **Raw Excel Data → Data Cleaning & EDA in Python → SQL Analysis → Power BI Dashboard → Business Insights**
 
 ---
 
-## Business Questions
+## 🖥️ Power BI Dashboard
 
-The analysis focuses on the following questions:
+![EV Charging Analytics Dashboard](Dashboard/EV_Charging_Analysis.png)
 
-1. How many charging sessions were recorded?
+The interactive dashboard provides insights into:
+
+- Total charging sessions
+- Total energy delivered
+- Average energy delivered per session
+- Average session duration
+- Monthly charging trends
+- Monthly energy delivery
+- Hourly charging demand
+- Hourly energy delivery
+- Weekday vs weekend charging patterns
+
+---
+
+## 🎯 Project Objective
+
+The objective of this project is to transform raw EV charging session data into meaningful operational insights.
+
+The analysis helps answer questions such as:
+
+1. How many EV charging sessions were recorded?
 2. How much energy was delivered?
 3. When is charging demand highest?
-4. How does charging activity vary over time?
+4. How does charging activity vary by hour and month?
 5. Are weekdays busier than weekends?
-6. How much energy is delivered per session?
+6. How much energy is delivered per charging session?
 7. How long do charging sessions typically last?
-8. Which charging connector is used most frequently?
-9. What operational patterns can support charger planning?
+8. How does energy delivery change throughout the day?
+9. Which connector is used most frequently?
+10. What insights can support EV charging infrastructure planning?
 
 ---
 
-## Dataset
-
-The dataset contains 1,878 charging sessions and 14 original columns, including:
-
-- Session
-- CCS
-- Arrival
-- Departure
-- Stay (min)
-- Energy (Wh)
-- Pmax (W)
-- Preq_max (W)
-- Controlled session
-- TotalCapacity
-- BulkCapacity
-- SOC arrival
-- SOC departure
-- Energy capacity (Wh)
-
-### Data Quality
-
-- Rows: 1,878
-- Columns: 14
-- Missing values: 0
-- Duplicate rows: 0
-- First recorded session: April 12, 2022
-- Last recorded session: July 4, 2023
-
----
-
-## Tools & Technologies
-
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- SQL
-- SQLite
-- Google Colab
-- Excel
-
----
-
-## Data Preparation
-
-The analysis included:
-
-- Data quality checks
-- Duplicate detection
-- Missing-value validation
-- Datetime feature extraction
-- Hour extraction
-- Month extraction
-- Weekday/weekend classification
-- Session-duration categorization
-- Energy unit conversion from Wh to kWh
-
----
-
-## SQL Analysis
-
-The dataset was loaded into a SQLite database and analyzed using SQL.
-
-Key SQL operations included:
-
-- COUNT
-- SUM
-- AVG
-- MIN
-- MAX
-- GROUP BY
-- ORDER BY
-
-The SQL queries are available in:
-
-`sql/analysis.sql`
-
----
-
-## Key KPIs
+## 📊 Key KPIs
 
 | KPI | Result |
 |---|---:|
-| Total charging sessions | 1,878 |
-| Total energy delivered | 60,441.94 kWh |
-| Average energy per session | 32.18 kWh |
-| Average session duration | 32.92 minutes |
-| Peak charging hour | 18:00 |
-| Sessions at peak hour | 156 |
-| Weekday sessions | 1,384 |
-| Weekend sessions | 494 |
-| Most-used connector | CCS1 |
-| CCS1 sessions | 1,129 |
-| Average maximum charging power | 102.49 kW |
+| Total Charging Sessions | **1,878** |
+| Total Energy Delivered | **60,441.94 kWh** |
+| Average Energy per Session | **32.18 kWh** |
+| Average Session Duration | **32.92 minutes** |
+| Peak Charging Hour | **18:00** |
+| Sessions at Peak Hour | **156** |
+| Weekday Sessions | **1,384 (73.7%)** |
+| Weekend Sessions | **494 (26.3%)** |
+| Most Used Connector | **CCS1** |
+| CCS1 Sessions | **1,129** |
+| Average Maximum Charging Power | **102.49 kW** |
 
 ---
 
-## Key Insights
+## 📁 Dataset
 
-### 1. Peak Charging Demand
+The dataset contains **1,878 EV charging sessions** recorded between:
 
-18:00 was the busiest recorded charging hour with 156 sessions. Charging activity remained relatively strong throughout the afternoon and early evening.
+- **First Session:** April 12, 2022
+- **Last Session:** July 4, 2023
 
-### 2. Weekday-Heavy Charging Activity
+The original dataset contains **14 columns**:
 
-73.7% of recorded sessions occurred on weekdays, compared with 26.3% on weekends.
+- `Session`
+- `CCS`
+- `Arrival`
+- `Departure`
+- `Stay (min)`
+- `Energy (Wh)`
+- `Pmax (W)`
+- `Preq_max (W)`
+- `Controlled session (0=False, 1=True)`
+- `TotalCapacity`
+- `BulkCapacity`
+- `SOC arrival`
+- `SOC departure`
+- `Energy capacity (Wh)`
 
-### 3. Energy Throughput
+### Data Quality Checks
 
-The dataset contains approximately 60,441.94 kWh of delivered energy across 1,878 charging sessions.
-
-The average session delivered approximately 32.18 kWh.
-
-### 4. Session Duration
-
-The average session duration was approximately 32.92 minutes.
-
-Medium-duration sessions were the largest derived category, with 869 sessions representing approximately 46.3% of all sessions.
-
-### 5. Connector Usage
-
-CCS1 accounted for 1,129 sessions, or approximately 60.1% of all recorded sessions.
-
-Average energy per session was similar between CCS1 and CCS2.
-
-### 6. Energy Distribution
-
-Most sessions delivered moderate amounts of energy, while a smaller number of high-energy sessions created a long right tail in the distribution.
+| Metric | Result |
+|---|---:|
+| Rows | **1,878** |
+| Columns | **14** |
+| Missing Values | **0** |
+| Duplicate Rows | **0** |
 
 ---
 
-## Visualizations
+## 🛠️ Tools & Technologies
 
-The project includes the following visualizations:
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Matplotlib**
+- **SQL**
+- **Power BI**
+- **Excel**
+- **Git**
+- **GitHub**
+
+---
+
+# 🔄 Project Workflow
+
+## 1️⃣ Data Preparation
+
+The raw dataset was analyzed and prepared using **Python and Pandas**.
+
+The data preparation process included:
+
+- Inspecting dataset structure and data types
+- Checking for missing values
+- Detecting duplicate records
+- Converting datetime fields
+- Extracting the charging hour
+- Extracting month and year
+- Creating weekday/weekend categories
+- Creating session-duration categories
+- Converting energy values from Wh to kWh
+
+---
+
+## 2️⃣ Exploratory Data Analysis with Python
+
+Python was used to perform exploratory data analysis and calculate operational KPIs.
+
+The analysis examined:
+
+- Charging sessions by hour
+- Monthly charging sessions
+- Energy delivery
+- Session duration
+- Weekday vs weekend charging behavior
+- Energy distribution
+- Maximum charging power
+
+### Python Visualizations
+
+The project includes:
 
 - Charging Sessions by Hour
 - Monthly Charging Sessions
 - Weekday vs Weekend Sessions
-- Energy Delivered Distribution
+- Energy Distribution
 - Session Duration Distribution
-- Average Energy per Session by Day Type
+- Average Energy by Day Type
 
-Visualizations are stored in the `visualizations/` directory.
-
----
-
-## Project Structure
+The Python analysis notebook is available in:
 
 ```text
-EV_Charging_Analytics/
-│
-├── data/
-│   └── Session_data.xlsx
-│
-├── notebooks/
-│   └── ev_charging_analysis.ipynb
-│
-├── sql/
-│   └── analysis.sql
-│
-├── visualizations/
-│   ├── sessions_by_hour.png
-│   ├── monthly_sessions.png
-│   ├── weekday_vs_weekend.png
-│   ├── energy_distribution.png
-│   ├── session_duration_distribution.png
-│   └── avg_energy_day_type.png
-│
-└── README.md
+notebooks/ev_charging_analysis.ipynb
